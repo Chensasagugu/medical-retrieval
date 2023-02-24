@@ -15,19 +15,21 @@
             <el-submenu index="0">
               <template slot="title">
                 <i class="el-icon-house"></i>
-                <span>Home</span>
+                <span>主页</span>
               </template>
             </el-submenu>
             <el-submenu index="1">
               <template slot="title">
                 <i class="el-icon-location"></i>
-                <span>Lung CT Retrieval</span>
+                <span>肺部CT图像检索</span>
               </template>
               <el-menu-item-group>
                 <router-link to="/retrieval/input">
-                  <el-menu-item index="1-1">Retrieval</el-menu-item>
+                  <el-menu-item index="1-1">检索</el-menu-item>
                 </router-link>
-                <el-menu-item index="1-2">History</el-menu-item>
+                <router-link to="/retrieval/ImageSearch">
+                  <el-menu-item index="1-2">检索历史</el-menu-item>
+                </router-link>
               </el-menu-item-group>
             </el-submenu>
           </el-menu>
@@ -43,7 +45,7 @@
 <script>
     import FrameHead from './head.vue'
 export default {
-  name: "frame",
+  name: "MedFrame",
   components:{
     FrameHead
   },

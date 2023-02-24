@@ -1,17 +1,31 @@
 <template>
-  <frame></frame>
+  <MedFrame v-if="isLogin"></MedFrame>
+  <router-view v-else></router-view>
 </template>
 
 <script>
-  import frame from './components/frame.vue'
+import MedFrame from "./components/med-frame.vue";
 export default {
   name: "App",
   components: {
-    frame
-},
+    MedFrame,
+  },
+  data() {
+    return {
+      username: "",
+      isLogin: false,
+    };
+  },
+  created() {
+    let usernameSession = sessionStorage.getItem("username");
+    if (!usernameSession) {
+      this.$router.push({ path: "/user/login" });
+    } else {
+      this.isLogin = true;
+    }
+  },
 };
 </script>
 
 <style>
-
 </style>

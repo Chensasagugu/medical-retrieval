@@ -2,7 +2,7 @@
     <div>
         <el-row>
             <el-col span="3">
-                CBMIR System
+                图像检索
             </el-col>
             <el-col span="3" offset="18">
                 Hello Doctor!
