@@ -35,7 +35,7 @@
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-
+import axios from 'axios'
 export default {
   name: "UserLogin",
   //import引入的组件需要注入到对象中才能使用
@@ -58,6 +58,7 @@ export default {
   //方法集合
   methods: {
     login() {
+      /*
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
           // 在这里编写登录逻辑，成功则弹出对话框并跳转到首页，失败则提示错误信息
@@ -69,7 +70,28 @@ export default {
           this.dialogText = "用户名或密码不正确";
           return false;
         }
-      });
+      });*/
+      const url = 'http://localhost:8090/medapi/user/login';
+      const data = {
+        username: 'chen',
+        password: '123456'
+      };
+      axios.post(url, data)
+        .then((response) => {
+          var data = response.data
+          if(data.code==0){
+            //登陆成功
+            sessionStorage.setItem("token",data.data)
+            this.$router.push({path:"/index"})
+          }else{
+            //登录失败
+
+          }
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
   //生命周期 - 创建完成（可以访问当前this实例）

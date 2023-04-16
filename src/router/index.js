@@ -2,11 +2,11 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import RetrievalInput from '../views/retrieval/input'
-import RetrievalOutput from '../views/retrieval/output'
 import test from '../views/user/test'
 import UserLogin from '../views/user/login'
 import ImageSearch from '../views/retrieval/ImageSearch'
 import IndexPage from '../views/index'
+import ImageDetail from '../views/retrieval/ImageDetail'
 
 Vue.use(VueRouter)
 
@@ -17,9 +17,9 @@ const routes = [
         component: RetrievalInput 
     },
     {
-        path: '/retrieval/output',
-        name: 'output',
-        component: RetrievalOutput
+        path: '/retrieval/detail',
+        name: 'detail',
+        component: ImageDetail
     },
     {
         path: '/user/test',

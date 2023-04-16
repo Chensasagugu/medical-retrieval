@@ -1,14 +1,16 @@
 <template>
-  <MedFrame v-if="isLogin"></MedFrame>
-  <router-view v-else></router-view>
+  <UserLogin v-if="!isLogin"></UserLogin>
+  <IndexPage v-else></IndexPage>
 </template>
 
 <script>
-import MedFrame from "./components/med-frame.vue";
+import IndexPage from "./views/index.vue"
+import UserLogin from "./views/user/login.vue"
 export default {
   name: "App",
   components: {
-    MedFrame,
+    IndexPage,
+    UserLogin,
   },
   data() {
     return {
@@ -18,9 +20,12 @@ export default {
   },
   created() {
     let usernameSession = sessionStorage.getItem("username");
-    if (!usernameSession) {
-      this.$router.push({ path: "/user/login" });
-    } else {
+    // if (!usernameSession) {
+    //   this.$router.push({ path: "/user/login" });
+    // } else {
+    //   this.isLogin = true;
+    // }
+    if(usernameSession){
       this.isLogin = true;
     }
   },

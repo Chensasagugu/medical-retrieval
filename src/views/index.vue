@@ -25,10 +25,10 @@
                   <i class="el-icon-s-help"></i>
                   <span>肺部CT图像检索</span>
                 </template>
-                <el-menu-item index="/retrieval/input">
+                <el-menu-item index="/retrieval/ImageSearch">
                     <span slot="title">检索</span>
                 </el-menu-item>
-                <el-menu-item index="/retrieval/ImageSearch">
+                <el-menu-item index="/user/test">
                   <span slot="title">检索记录</span>
                 </el-menu-item>
               </el-submenu>
